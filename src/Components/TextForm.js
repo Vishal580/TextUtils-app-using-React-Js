@@ -7,16 +7,19 @@ const UppercaseHandeler = () => {
     // console.log("Upperscase was clicked");
     let newText = text.toUpperCase();
     setText(newText)
+    props.showAlert("Converted to Uppercase!", "success")
 }
 
 const LowercaseHandeler = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase!", "success")
 }
 
 const clearTextHandeler = () => {
     let newText = "";
     setText(newText);
+    props.showAlert("Cleared all text!", "success")
 }
 
 const CapitalizedCaseHandeler = () => {
@@ -26,6 +29,7 @@ const CapitalizedCaseHandeler = () => {
     .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter of each word
     .join(' '); // Join the words back into a single string;
     setText(newText);
+    props.showAlert("Converted to Capitalized case!", "success")
 }
 const copyToClipboardhandeler = () => {
     // Get the text field
@@ -44,7 +48,8 @@ const copyToClipboardhandeler = () => {
     navigator.clipboard.writeText(copyText.value);
 
     // Alert the copied text
-    alert("Copied the text: " + copyText.value);
+    // alert("Copied the text: " + copyText.value);
+    props.showAlert("Copied the text to Clipboard!", "success")
 }
 
 const DownloadTexthandeler = () => {
@@ -74,6 +79,7 @@ const DownloadTexthandeler = () => {
 
     // Clean up by removing the temporary link
     document.body.removeChild(link);
+    props.showAlert("Text exported as .txt file!", "success")
 }
 
 const onChangeHandeler = (event) =>{
