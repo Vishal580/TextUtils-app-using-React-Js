@@ -13,7 +13,7 @@ const darkToggleMode = () =>{
         setmyStyle({
             color: "white",
             backgroundColor: "black",
-            border: '0.5px solid white'
+            // border: '0.5px solid white'
         });
         setBtnText("Enable Light Mode");
     }

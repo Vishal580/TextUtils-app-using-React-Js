@@ -39,8 +39,7 @@ const copyToClipboardhandeler = () => {
 
     // Select the text field
     copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-
+    
     // Copy the text inside the text field
     navigator.clipboard.writeText(copyText.value);
 
@@ -83,10 +82,10 @@ const onChangeHandeler = (event) =>{
 }
   return (
     <>
-    <div>
+    <div className='container' style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>{props.headline}</h1>
         <div className="mb-3">
-            <textarea className="form-control" value={text} onChange={onChangeHandeler} id="myBox" rows="8"></textarea>
+            <textarea className="form-control" value={text} onChange={onChangeHandeler} style={{backgroundColor: props.mode==='dark'?'grey':'white', color: props.mode==='dark'?'white':'black'}} id="myBox" rows="8"></textarea>
         </div>
         <button className='btn btn-secondary mx-1' onClick={UppercaseHandeler}>Convert to Uppercase</button>
         <button className='btn btn-secondary mx-1' onClick={LowercaseHandeler}>Convert to Lowercase</button>
@@ -95,12 +94,12 @@ const onChangeHandeler = (event) =>{
         <button className='btn btn-secondary mx-1' onClick={DownloadTexthandeler}>Download Text</button>
         <button className='btn btn-secondary mx-1' onClick={clearTextHandeler}>Clear all</button>
     </div>
-    <div className="container my-3">
+    <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your Text Summary</h2>
         <p>{text.split(" ").length-1} Words and {text.length} Characters</p>
         <p>Average time to read the given text is {0.008 * text.split(" ").length} Minuts</p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter some text above to preview it."}</p>
     </div>
     </>
   )
