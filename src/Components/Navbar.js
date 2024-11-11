@@ -35,7 +35,7 @@ Navbar.prototype = {
     about: PropTypes.string.isRequired
 }
 
-Navbar.defaultProps = {
-    title: "Home",
-    about: "About Us"
-}
+// Navbar.defaultProps = {
+//     title: "Home",
+//     about: "About Us"
+// }
