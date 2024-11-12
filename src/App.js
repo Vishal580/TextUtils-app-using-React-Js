@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import './App.css';
-// import About from './Components/About';
+import About from './Components/About';
 import Navbar from "./Components/Navbar";
 import TextForm from './Components/TextForm';
 import Alert from './Components/Alert';
+import {
+  BrowserRouter as Router,
+  //Switch,
+  Route,
+  //Link,
+  Routes
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -66,12 +73,16 @@ function App() {
 
   return (
     <>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <Navbar title="TextUtils" about="About" mode={mode} toggleMode={toggleMode} brownMode={brownMode} skyMode={skyMode}/>
       <Alert alert={alert}/>
       <div className="container my-3">
-        <TextForm headline="Enter your text to anlyze below" mode={mode} showAlert={showAlert}/>
+      <Routes>
+          <Route exact path="/about" element={<About/>}></Route>      
+          <Route exact path="/" element = {<TextForm headline="Enter your text to anlyze below" mode={mode} showAlert={showAlert}/>}></Route>
+      </Routes>
       </div>
-      {/* <About/> */}
+    </Router>
     </>
   );
 }
