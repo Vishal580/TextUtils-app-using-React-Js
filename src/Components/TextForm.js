@@ -105,7 +105,7 @@ const onChangeHandeler = (event) =>{
         <p>{text.split(" ").length-1} Words and {text.length} Characters</p>
         <p>Average time to read the given text is {0.008 * text.split(" ").length} Minuts</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter some text above to preview it."}</p>
+        <p>{text.length>0?text:"Enter something above to preview it."}</p>
     </div>
     </>
   )

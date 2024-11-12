@@ -23,9 +23,22 @@ export default function Navbar(props) {
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-light" type="submit">Search</button>
             </form> */}
+            {/* Dark Mode */}
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
               <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Darkmode</label>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+            </div>
+
+            {/* Brown Mode */}
+            <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+              <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.brownMode}/>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Brown Mode</label>
+            </div>
+
+            {/* Skyblue mode */}
+            <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+              <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.skyMode}/>
+              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Skyblue Mode</label>
             </div>
           </div>
         </div>
