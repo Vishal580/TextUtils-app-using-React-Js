@@ -1,44 +1,49 @@
-import React, { useState } from 'react'
+// import React, { useState } from 'react'
+import React from 'react'
 
-export default function About() {
-const [myStyle, setmyStyle] = useState({
-    color: "black",
-    backgroundColor: "white"
-});
+export default function About(props) {
+// const [myStyle, setmyStyle] = useState({
+//     color: "black",
+//     backgroundColor: "white"
+// });
 
-const [BtnText, setBtnText] = useState("Enable Dark Mode");
-
-const darkToggleMode = () =>{
-    if(myStyle.color === "black"){
-        setmyStyle({
-            color: "white",
-            backgroundColor: "black",
-            // border: '0.5px solid white'
-        });
-        setBtnText("Enable Light Mode");
-    }
-    else{
-        setmyStyle({
-            color: "black",
-            backgroundColor: "white"
-        });
-        setBtnText("Enable Dark Mode");
-    }
+let myStyle = {
+    color: props.mode === 'dark'?'white':'black',
+    backgroundColor: props.mode === 'dark'?'#232743':'white'
 }
+// const [BtnText, setBtnText] = useState("Enable Dark Mode");
+
+// const darkToggleMode = () =>{
+//     if(myStyle.color === "black"){
+//         setmyStyle({
+//             color: "white",
+//             backgroundColor: "black",
+//             // border: '0.5px solid white'
+//         });
+//         setBtnText("Enable Light Mode");
+//     }
+//     else{
+//         setmyStyle({
+//             color: "black",
+//             backgroundColor: "white"
+//         });
+//         setBtnText("Enable Dark Mode");
+//     }
+// }
   return (
     <div className="container my-3" style={myStyle}>
         <h1 className='container my-3' >About TextUtils</h1>
         <p className='container my-3'>Welcome to TextUtils, your go-to web application for all things text manipulation! TextUtils is designed to help you transform and manage text exactly the way you want. Whether you're drafting a document, preparing content, or editing notes, TextUtils provides a range of powerful yet easy-to-use tools to make your work seamless.</p>
         <p className='container my-3'>Here's a quick overview of what TextUtils can do for you:</p>
-        <div className="accordion" id="accordionExample" style={myStyle}>
-            <div className="accordion-item" style={myStyle}>
+        <div className="accordion" id="accordionExample">
+            <div className="accordion-item">
                 <h2 className="accordion-header">
                 <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <b>Key Features</b>
                 </button>
                 </h2>
                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                <div className="accordion-body">
+                <div className="accordion-body" style={myStyle}>
                     <strong>Convert to Uppercase: </strong>Need to make a bold statement? With just a click, convert any text to uppercase, making it stand out and convey importance. This feature is perfect for titles, headings, or emphasizing sections of your text.<br/><br/>
                     <strong>Convert to Lowercase: </strong>Standardize your text effortlessly. Convert any text to lowercase with a single click, making it ideal for email addresses, usernames, or simply keeping a consistent text style.<br/><br/>
                     <strong>Capitalized Case: </strong>Give your text a polished look by capitalizing the first letter of each word. This feature is especially helpful for titles, names, and proper nouns, ensuring your text appears professional and well-formatted.<br/><br/>
@@ -77,9 +82,9 @@ const darkToggleMode = () =>{
                 </div>
             </div>
         </div>
-        <div className="containe my-3">
+        {/* <div className="containe my-3">
             <button type="button" className="btn btn-secondary" onClick={darkToggleMode}>{BtnText}</button>
-        </div>
+        </div> */}
     </div>
   )
 }
