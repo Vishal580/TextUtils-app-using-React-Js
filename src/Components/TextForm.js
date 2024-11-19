@@ -33,22 +33,24 @@ const CapitalizedCaseHandeler = () => {
 }
 const copyToClipboardhandeler = () => {
     // Get the text field
-    var copyText = document.getElementById("myBox");
+    // var copyText = document.getElementById("myBox");
 
     // Check if there is text to copy
-    if (copyText.value === "") {
-        alert("The textarea is empty. Nothing to copy!");
-        return;  // Exit the function early if empty
-    }
+    // if (copyText.value === "") {
+    //     alert("The textarea is empty. Nothing to copy!");
+    //     return;  // Exit the function early if empty
+    // }
 
     // Select the text field
-    copyText.select();
+    // copyText.select();
     
     // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
+    // navigator.clipboard.writeText(copyText.value);
 
     // Alert the copied text
     // alert("Copied the text: " + copyText.value);
+    navigator.clipboard.writeText(text);
+
     props.showAlert("Copied the text to Clipboard!", "success")
 }
 
@@ -102,7 +104,7 @@ const onChangeHandeler = (event) =>{
     </div>
     <div className="container my-3" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your Text Summary</h2>
-        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters</p>
         <p>Average time to read the given text is {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minuts</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to preview!"}</p>
